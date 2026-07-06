@@ -1,7 +1,6 @@
 {
   "name": "besnovatyj/yii2-cms-contracts",
   "description": "Нейтральные контракты (интерфейсы) ядра Yii2 CMS: разделяемые абстракции между модулями, менеджером модулей и подсистемами. Не зависит ни от чего тяжёлого.",
-  "version": "1.0.0",
   "type": "library",
   "license": "MIT",
   "authors": [

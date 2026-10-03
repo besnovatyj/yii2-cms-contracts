@@ -13,7 +13,7 @@ namespace Besnovatyj\Contracts\theme;
  *
  * Манифест — тема-НЕзависимая проекция набора установленных модулей: плоская мапа
  * `moduleId => sourceAlias`, где `sourceAlias` — алиасный путь к собственному `views/`-каталогу
- * модуля (`@vendor/...`, `@root/packages/...` в dev или `@modules/...`). Плюс единственный
+ * модуля (`@vendor/...`). Плюс единственный
  * корневой ключ {@see APP_VIEWS_KEY} для представлений самого приложения.
  *
  * Производитель — менеджер модулей (перегенерирует при install/uninstall). Потребитель —
@@ -25,8 +25,7 @@ namespace Besnovatyj\Contracts\theme;
  * return [
  *     ViewSourcesManifest::APP_VIEWS_KEY => '',              // корневой оверлей: {theme}/views
  *     'Menu'   => '@vendor/besnovatyj/yii2-cms-menu/src/views',
- *     'Person' => '@root/packages/besnovatyj/yii2-cms-person/src/views',
- *     'User'   => '@modules/User/views',
+ *     'Person' => '@vendor/besnovatyj/yii2-cms-person/src/views',
  * ];
  * ```
  */

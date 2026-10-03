@@ -13,14 +13,14 @@ namespace Besnovatyj\Contracts\module;
  *
  * Методы намеренно СТАТИЧЕСКИЕ: discovery читает метаданные модуля, не инстанцируя Yii-модуль
  * (и, следовательно, не запуская его {@see \yii\base\Module::init()} с побочными эффектами).
- * При этом, в отличие от старого `modman`, это типизированный контракт: наличие возможности
- * проверяется через `class_implements()`/`instanceof`, а не через `method_exists()`.
+ * Наличие возможности проверяется через `class_implements()`/`instanceof`, а не через `method_exists()`.
+ *
+ * Версии в контракте нет: версия модуля — git-тег (или коммит), по которому composer установил пакет;
+ * её определяет менеджер модулей из метаданных composer.
  *
  * Дополнительные возможности модуля объявляются реализацией capability-интерфейсов
  * {@see ProvidesComponents}, {@see ProvidesMigrations} и т.д. — каждый модуль реализует ровно то,
  * что он действительно предоставляет.
- *
- * @see \modules\modman\catalog\ManifestFactory сборка {@see \modules\modman\catalog\ModuleManifest}
  */
 interface DeclaresModule
 {
@@ -31,14 +31,8 @@ interface DeclaresModule
     public static function moduleId(): string;
 
     /**
-     * Семантическая версия модуля (например, '1.2.3').
-     * Источник истины о версии при установке/обновлении.
-     */
-    public static function moduleVersion(): string;
-
-    /**
      * Базовая конфигурация Yii-модуля: ['id' => ..., 'params' => [...], ...].
-     * НЕ содержит 'class' и 'version' — их добавляет компилятор из манифеста.
+     * НЕ содержит 'class' — его добавляет `config/common.php` модуля при регистрации.
      */
     public static function moduleConfig(): array;
 

@@ -25,12 +25,15 @@ final readonly class ThemeArea
      * @param string $label Человекочитаемое имя для админки.
      * @param string $hint  Подсказка администратору: где место на странице и какая начинка ему подходит.
      * @param int    $sort  Порядок в списке мест (меньше — выше).
+     * @param list<string> $types Типы блоков, которые место принимает сверх встроенных в модуль блоков
+     *                            (встроенные разрешены везде). Пусто — только встроенные.
      */
     public function __construct(
         public string $id,
         public string $label,
         public string $hint = '',
         public int $sort = 0,
+        public array $types = [],
     ) {
     }
 }
